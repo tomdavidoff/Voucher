@@ -1,0 +1,71 @@
+\documentclass[12pt]{article}
+
+\usepackage[style=authoryear,uniquename=false,backend=biber]{biblatex}
+\usepackage{pgf}
+\bibliography{tombib}
+\usepackage{amsmath}
+
+\begin{document}
+
+\title{Rental assistance vs public housing}
+\author{Tom Davidoff}
+\maketitle
+
+Some thoughts on the problem:
+
+\begin{itemize}
+	\item Not sure how to handle First Nations here, I will keep general, but that's obviously a big issue.
+	\item Second welfare theorem: give cash, not housing units or even housing price cuts
+		\begin{itemize}
+			\item Powerful mechanism around Vancouver: CAC/density bonusing (see \textcite{ElmendorfShanske} and \textcite{Davidoffauction}).
+			\item Idea: set targets to densify single family areas with predefined allowable density, auction quantities
+			\item Current system of CACs and Density Bonusing accomplishes this if cities set quantity targets and set pricing to meet those targets
+			\item Potentially huge cash amounts, billions already in Burnaby, 30\% (??) of Vancouver city budget at peak
+			\item Note most jurisdictions around North America can't charge more than cost of on-site improvements
+			\item So affordability requirement in a new project in lieu of a CAC yields an auction for a very large housing prize
+			\item Opportunity cost of public land very high
+		\end{itemize}
+	\item Why do the welfare theorems not hold here?
+		\begin{itemize}
+			\item Some people presumably face high costs of leaving high cost locations
+				\begin{itemize}
+					\item Family/social attachment (\textcite{BlanchardKatz}-- real wages don't converge, but unemployment does; \textcite{GlaeserAustinSummers}, starting to see divergence.
+					\item Canada presumably more stickiness
+					\item So need adjustment for local costs, creating a mobility (exit the region) incentive problem, so welfare theorems are out the window
+				\end{itemize}
+			\item Parent-child allocation of cash aid
+				\begin{itemize}
+					\item Child-centric consumption less work disincentive
+					\item Free cash moral hazard spending problem
+					\item Not easily solved as rent assistance must be $>$ otherwise optimal rent expenditure to bind
+				\end{itemize}
+			\item Concentration of poverty
+				\begin{itemize}
+					\item Not a big deal here unlike the US (Somerville-Reis there are more desirable school catchments in Vancouver)
+				\end{itemize}
+			\item Sub-standard private housing creating health problems (??)
+			\item Homelessness -- need for on-site help for at-risk populations?
+		\end{itemize}
+	\item Rental assistance
+		\begin{itemize}
+			\item Moral hazard on rent if formulaic to income: with homeowner grant capped for many would be a ``live in BC housing allowance''
+				\begin{itemize}
+					\item \textcite{EriksenRoss} 30\% of income so landlords bump rent and capture upside
+				\end{itemize}
+			\item Moral hazard on unit choice to parents. US Section 8 Voucher experience: 
+				\begin{itemize}
+					\item \textcite{PalmerChettyetc} Voucher recipients make dominated housing choices that are improved with information and outreach, builds on MTO.
+				\end{itemize}
+		\end{itemize}
+	\item LIHTC and crowdout
+		\begin{itemize}
+			\item Heterogeneous impacts on surrounding housing prices based on difference with existing units \textcite{DiamondMcQuade}, \textcite{BaumSnowMarion}
+			\item \textcite{SinaiWaldfogelcrowdout}:: more crowdout of private housing units from public or LIHTC housing than from housing vouchers
+		\end{itemize}
+	\item Difficulty of purpose built rental -- tax reform and low interest rates undersold as a reason not enough PBR (Canada similar situation to US) (\textcite{Poterba92}).
+	\item Federal government putting a lot of money into rental, might be better done as public ownership, see my note \textcite{Davidoffcmhc}. Why lend at 1.75\% rent/price when equity partner developers insist on 4.5\% rent/price to do development deals? Government could buy from developers at 3\%, get more built, and much better returns for taxpayers (up to risk, which seems quite limited and risk of low rents is a win).
+\end{itemize}
+
+\printbibliography
+
+\end{document}
