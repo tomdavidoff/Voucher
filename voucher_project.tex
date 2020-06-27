@@ -1,17 +1,208 @@
 \documentclass[12pt]{article}
 
-\usepackage[style=authoryear,uniquename=false,backend=biber]{biblatex}
 \usepackage{pgf}
-\bibliography{tombib}
+\usepackage[margin=1in]{geometry}
+%\usepackage{natbib}
+\usepackage[style=authoryear,uniquename=false,backend=biber]{biblatex}
+\addbibresource{tombib.bib}
 \usepackage{amsmath}
 
 \begin{document}
 
-\title{Rental assistance vs public housing}
+\title{Cash assistance vs social housing}
 \author{Tom Davidoff}
 \maketitle
 
-Some thoughts on the problem:
+\section{Introduction}
+
+The high cost of housing in British Columbia makes it difficult for many households to afford to live here. It is thus natural for government to provide assistance with housing affordability to some households. This note addresses the question of whether that assistance should come in the form of cash grants to households on the demand side or subsidies to particular housing providers who offer below-market prices or rents to qualifying households on the supply side. 
+
+
+\subsection{Caveats}
+
+This document discusses housing affordability generally. The important questions of homelessness and First Nations reserve housing are not treated directly. The emphasis of examples will be with respect to the Greater Vancouver market, with which I have greater familiarity.
+
+\section{The Problem: Housing Affordability in B.C.}
+
+B.C. residents, particularly in the Vancouver, Victoria, and Kelowna metropolitan areas, face unusually high housing costs and hence compromised affordability. By one well-known if imperfect measure, Demographia's estimate of the ratio of median house prices to median income, Vancouver has the second worst housing affordability among markets in nine covered countries. 
+
+Households are commonly considered to face a housing affordability problem when they spend 30\% or more of their income on housing.\footnote{For example, CMHC mortgage insurance tests require that total mortgage and other housing payments not exceed 32\% of total income (even under increased interest rates). The Census divides housing costs paid as a fraction of income into over and under 30\%. The U.S. Department of Housing and Urban Development considers housing expenditures over 30\% of income as burdened, but that ratio has grown with time. Of course, there is nothing magical about 30\%: having more money to spend on goods other than housing is always better than having less, so low quality-adjusted housing costs and high incomes are generally good. Another imperfection is substitution, renters in less expensive jurisdictions may live in generally better homes.} For a host of reasons, rent is a better numerator than owner costs in measuring this affordability ratio.\footnote{Housing price to income ratios may be misleading in comparisons both across time and locations. For homeowners, mortgage amortization is not an economic cost but is commonly included in expenditures on housing. The opportunity cost of home equity that could earn returns in other assets is commonly ignored. Moreover, Vancouver should have high purchase prices relative to incomes because its supply and demand fundamentals indicate long-run growth of rents. This is not a violation of no-arbitrage, per \textcite{GyourkoMayerSinai}: rental dividend yields provide a degree of freedom for differences in expected capital gains. Future capital gains are paid for in purchase prices and hence annual mortgage costs, but the future benefit should approximately equal the acquisition cost.  Additionally, there is a very high correlation between lifetime wealth and homeownership, so the households most in need of government assistance are generally renters.}
+
+B.C.'s affordability problem, while real appears much less relatively severe in terms of the ratio of rent paid to income than the ratio of price to income. Among all Canadian renters in the 2016 Census, 40\% paid more than 30\% of their income on rent. In Vancouver, 43\% paid more than that. In Victoria, 44\% paid more than 30\%. However, the 2016 statistic for all renters may understate B.C.'s current affordability problem relative to some other Canadian cities. Long-term incumbent renters who have benefitted from rent control are not representative of those currently searching for homes and may themselves be in precarious conditions: private landlords, who face tenant-specific rent controls, have strong incentives to try to get tenants to move out. Moreover, CMHC reports that rents have been escalating considerably more quickly in Vancouver (10.4\% between October, 2017, and October, 2019) and Victoria (9.9\%) than in Canadian metropolitan areas generally (7.7\%). At the level of cost, a two bedroom apartment in a privately owned structure averages just over \$1,100 per month in all Canadian CMAs, but \$1,748 and \$1,448 in Vancouver and Victoria, respectively as of October, 2019. Another way in which rent-to-income ratios understate the housing affordability problem is churning out of households discouraged by high costs and replacement with higher income workers. Vacancy rates are also extraordinarily low in Vancouver, averaging under 1\% over the past 5 years per the Greater Vancouver Housing Data Book. Simply finding an adequate home at any rent may be a daunting challenge (although COVID appears to have slackened the market somewhat).
+
+The major housing markets in B.C. may be characterized as challenged both by regulation and natural impediments to growth. \textcite{CMHCExpensive} estimates that long-run housing supply elasticity in Vancouver is less than 0.5, relative to average values around 1.0 for other large Canadian cities. 
+
+\section{Current Government Policy}
+
+There is considerable government intervention into housing markets already. Among the major interventions are the following:
+
+\subsection{Social Housing}
+
+Most housing construction in Greater Vancouver is apartments, of which roughly 75\% have been condominiums over the past decade.\footnote{Greater Vancouer Housing Data Book, 2019.} Of rental housing starts, various types of social housing represent roughly 20\%, a share that appears to have risen recently, abetted by increased Federal and Provincial activity. Roughly 15\% of the stock of rental units in Greater Vancouver are social or cooperative. Federal subsidies both for social and cooperative housing and tax preferences for rental housing weakened in Canada starting around the mid-1970s, as in the U.S. The waitlist on a centralized social housing registry (13,000 in 2019) is large relative to the estimated stock of 50,000 social housing units.
+
+Both B.C. Housing at the Provincial level and CMHC have greatly expanded their involvement in rental housing in recent years. In 2019/2020, B.C. Housing appears to invest roughly \$500 million in capital grants and operating assistane to housing providers.\footnote{To be confirmed, per https://www.bchousing.org/about/corporate-reports-plans, page 18 of 2019/22 statement.}
+
+\subsection{Rent Control}
+
+Rent control in B.C. has become much stricter over recent years for two reasons: first, the excess of market rental growth over inflation appears to have grown and second, the allowable rent increase under private contracts has fallen from CPI growth + 2\% to only CPI growth. Notably, the Rental Tenancy Act does not affect the growth of rents tied to income in subsidized housing.
+
+Given that rents are decontrolled at vacancy, rent control is essentially a stochastic transfer from landlords to tenants with an expected value that grows with the tenant's tenure in a property. This could be a feature of private contracts but is instead mandated. 
+
+Relative to a world with no rent control, rent control is a disincentive to build new rental housing and a disincentive to transfer existing units to rentals. A large fraction of all rental units in Greater Vancouver are condominiums and basement suites rented by individual owners to tenants. 
+
+A very rough approximation would be 200,000 households significantly affected by rent control, saving 10\% on rent of \$1,250 per month at market rates would be a \$300 million annual transfer from landlords to tenants induced by rent control (excluding the equilibrium effect of diminished rental supply). 
+
+\subsubsection{Landlord incentives and tenant protections}
+
+A problem with rent control combined with vacancy decontrol is that it provides incentives for landlords to churn tenants. There are limitations on the means landlords can use to churn tenants, but creating fake relation occupancies or manufactured ``necessary'' renovations appear not to be unusual techniques used to mark rents to market.\footnote{See, for example: \texttt{https://vancouversun.com/news/local-news/vancouver-tenant-continues-battle-against-renoviction}}
+
+\subsubsection{``Spot'' rental only zoning}
+
+Another way to eliminate long-term tenants is to demolish an older building and build a new apartment building. Residential Rental Tenure Zoning, originally conceived of as a way to help new purpose rental buildings compete for land with condominiums, has been used in New Westminister and Richmond to preserve rental tenure on individual rental lots. This has been a controversial intervention.
+
+\subsection{Tax Preferences and subsidies}
+
+Neither federal nor provincial income tax is assessed on the implicit rents (net of expenses and depreciation) and realized capital gains for owner-occupiers but is for landlords. Given the strong relationship between wealth and homeownership, this is a regressive policy that reduces the quantity of rental housing relative to owner housing. With rental income net of allowable expenses of perhaps 2.5\% of property value and similar mortgage rates, we might not expect more than .5\% of property value to be taxable each year if held commercially (that figure can include discounted future capital gains taxes). At a 50\% combined tax rate on a \$1,000,000 home, that would be a \$2,500 subsidy per year. This is large relative to the B.C. Homeowner's grant, a further subsidy to ownership over rental.
+
+The Provincial share of that \$2,500 income tax subsidy, at a 10\% marginal tax
+rate is closer to in line with the rental assistance program's means-tested
+maximum of around \$550.
+
+BC Housing appears to spend roughly \$500 million on rental assistance (RAP and SAFER) each year.
+
+\subsection{Regulation}
+
+Land use regulation plays a large role in determining the types and quantities of housing available around the Lower Mainland. Apartments are forbidden in most residential areas of Vancouver and in the overwhelming majority of suburban land area. The relaxation of zoning has very large private value: consider a single family home on the West Side of Vancouver near but not in the Cambie Corridor. A single family home worth \$2.5 million contains some redevelopment value. But a 4,000 square foot lot on which, say 8,000 square feet of multifamily space could be built,\footnote{To a relatively ``gentle'' urban density of 2.0 Floor Space Ratio.} could have a value above \$4,000,000. 
+
+Cities like Vancouver and Burnaby have actively, if imperfectly, expanded their ``capture'' of ``land lift'' from rezoning, earning hundreds of millions of dollars in recent years in rezoning fees. Assuming 1,000 single family homes could be rezoned for a land lift capture of \$350,000 each per year for the foreseeable future, this is a potential income stream of \$350 million per year, sufficient to fund a \$1,000 annual renters benefit for each of the roughly 350,000 renting households in Greater Vancouver. This seems quite attainable, as the Housing Data Book shows an average of roughly 3,000 single family homes demolished per year under current regulation. The City of Vancouver alone appears to have budgeted for roughly \$100 million in development charges in the 2020 budget (to be verified).
+
+Expanding multifamily housing opportunities would have the effects of allowing more people to live in B.C.'s expensive CMAs while reducing prices and rents. 
+Possibly in response to diminished condominium presale activity, municipalities in recent years have been turning to trading zoning for long-term guarantees that properties will be held as uniformly rental buildings in lieu of development charges. In the City of Vancouver, the city appears to commonly sacrifice up to \$100 per built square foot in developer contributions in exchange for conversion to rental status. This does not guarantee affordability: 2-bedroom condos in new purpose built rentals are commonly listed at \$2,750.\footnote{See recent development applications summarized by the City of Vancouver planning department.}
+
+Given that supply is largely rationed by zoning, the deadweight loss of property taxation in Greater Vancouver should be modest. Provincial surtaxes such as the Additional School Tax may therefore be a desirable if controversial source of funds.
+
+\subsubsection{The suboptimality of low density zoning}
+
+One concern commonly raised about upzoning residential neighbourhoods is that doing so causes land value inflation. Given that land use constraints amount to rationing of permits, it should not be hard to set zoning prices to clear the market at the desired quantity of redevelopment, with land values rising only enough to convince the desired numbers to sell. Moreover, the rationalization of residential zoning, per \emph{Euclid v Ambler} is presumably to enhance the enjoyment of neighbourhoods. Since land values should approximate the total benefit minus costs of residents, it is difficult to rationalize zoning that destroys land value.\footnote{Denser development presumably reduces the pace of sprawl as well as increasing affordability, so it seems unlikely that a regional strategy would involve restricting supply below the land value maximizing level that would be set by a monopolist over land. Mass rezoning throughout the region could lower land values, but under current zoning individual neighbourhood upzonings such as the Cambie Corridor (which are small relative to the region) have had large positive land value effects.}
+
+\subsubsection{More efficient sale of zoning}
+
+Relaxing restrictive low-density zoning is politically controversial, as trees and lawns are less disruptive than people as neighbours. The sale proceeds from relaxed zoning, which could go to funding affordable housing initiatives, typically fund ``community amenities'' which may placate incumbent residents. It appears that more funds on both dimensions could be achievable with a more focused approach to selling density.\footnote{See \textcite{Elmendorf} for some formalization in a U.S. context.}  The current practice of ``density bonusing,'' whereby a specific type and quantity of housing is allowed at a specified price could be thought of as a Dutch auction mechanism. Communities could adjust the (neighbourhood-specific) price of density to achieve the politically feasible quantities while almost maximizing proceeds. Prices per square foot on the order of \$100 per square foot in Vancouver, while economically large, seem considerably below the price minus marginal cost of square footage.
+
+\section{Policy options: Cash transfers vs social housing}
+
+Social housing is relatively broadly defined in B.C. as ``a housing development that government subsidizes and that either government or a non-profit housing partner owns and/or operates.''. Affordable units in a mixed market-affordable building (such as are granted unusually high zoning densities at low fees under Vancouver's Moderate Income Rental Housing Pilot Program might count, along with deeply subsidized apartments in an entirely not-for-profit project. More broadly, when cities forego land lift capture to create rental units, this arguably amounts to government subsidy of housing units for renters, particularly since in principle (if not practice), land value capture revenue could support cash transfers. 
+
+We may thus pose the question of whether cash transfers to households or subsidies to owners of units that provide discounted rents are a better way to increase the wedge between housing cost and incomes for those qualifying for benefits.
+
+\subsection{The efficiency case against supply-side subsidies (the Second Fundamental Welfare Theorem)}
+
+Economists typically favor cash to ``in-kind'' transfers to handle the problem of insufficient income relative to consumer prices. 
+
+
+\subsubsection{Within-individual efficient use of resources (concavity I)}
+
+One major reason for this relates to the problem of budgeting (or expenditure minimization to attain a target level of utility). \textcite{GlaeserLuttmer} make this point in terms of rent control. A low income household faced with a large economic subsidy would likely not choose to live in an apartment in an A+ location; rather they would choose a more moderate level of housing but increased consumption on other dimensions. Obtaining the subsidy (or government enforced transfer in the case of rent control) may induce households to consume more or different housing than they would choose to consume. The income elasticity of demand for housing is generally believed to be below one.\footnote{\textcite{DavisFOM} provide macro evidence for an elasticity of one, but that is an outlier among empirical results.} 
+
+For example, consider a household making a slightly below-median \$70,000 for whom a rent of $\$70,000\times .3/12 = \$1,750 $ is affordable and desirable. If they were induced by a subsidy program to consume a two bedroom apartment with a market cost of \$2,750, that would be an increase of \$10,000 in their housing consumption. However, even if that increase in rent were fully subsidized with an effective \$12,000 annual transfer, this would amount to a 57\% increase in housing consumption compared to a 17\% increase in income. Likely, that household could be made better off with a smaller allowance, but free choice over how to spend their new wealth.
+
+\subsection{Across-individual efficient use of resources: lotteries versus entitlements (concavity II)}
+
+Related to the within-household efficiency argument (through the idea of diminishing marginal returns) and relevant in the case of Vancouver is that some of the arguments for social housing are salient only in the case of very large indivisible transfers. A key argument made in City of Vancouver documents is a desire for diversity within the city: public housing allows at least some lower income households to mix in with the increasingly affluent households able to afford market housing in Vancouver.\footnote{This is ironic in the sense that the classical North American housing projects became problematic because they caused concentration of poverty.} Consider the case of a Kitsilano apartment building in which the city acquires rental status in exchange for roughly \$80,000 per 800 square-foot 2-bedroom apartment. At a 3\% marginal cost of funds, that is a \$2,400 transfer, already large relative to a renters' rebate previously deemed infeasible budgetarily. A much larger transfer, though, would be required to make the unit affordable -- the \$12,000 required to get to affordability just below median household income could not be a broadly scaled entitlement in the context of current approaches to redistribution. Providing some low income households with \$14,500 in annual subsidies (\$1,000 per month plus the annualized foregone upzoning payments)
+
+\subsection{Crowdout}
+
+In markets in which the costs of construction rise sharply with the volume of construction, or where government rationing of building permits is insensitive to the subsidized or market nature of housing built, subsidized housing units may crowd out private construction. \textcite{SinaiWaldfogelCrowdout} find that in some U.S. housing markets, there is considerable crowdout: more subsidized units is correlated with fewer private units. They find that this effect is weaker in markets like Vancouver where there is considerable demand for low-rent units. To the extent that vouchers go to households who would have remained in cities with or without the voucher, vouchers also fail to add to supply (but also fail to generate new housing units). Sinai and Waldfogel find less crowdout of units (better targeting) in the case of Section 8 vouchers, which they find are more positively correlated with total housing units than are subsidized units.
+
+\subsection{Arguments in favor of subsidized housing units}
+
+There are, however, arguments for in-kind transfers that should be considered
+
+\subsubsection{Mobility Moral hazard}
+
+Any transfer to households living in B.C. will induce a migration moral hazard. This puts a bound on generosity witihin housing transfer budgets anywhere near the current level: some have proposed that there should be a right to an affordable housing unit in one's desired community in B.C., but it is difficult how that could survive long-run open borders within Canada. What low-skill household would not want to enjoy B.C.'s high amenity levels with a guarantee of housing at 2/3 of income? This is in no way meant to deny that housing is a human right, but rather to recognize the scope of the challenge of establishing a right to live affordably in Greater Vancouver.
+
+\subsubsection{Moral hazard: Labour supply and intra-household allocation}
+There are moral hazard arguments that argue for subsidized units over cash in a similar quantity. First, there may be a disincentive to earn income that subsidizing selected units might screen out. Per \textcite{BesleyCoate}, forcing people to consume goods different from what they would otherwise choose to consume in order to receive benefits may screen out those with greater ability to earn income. That is, there may be individuals who would earn high incomes absent a means-tested housing allowance but low incomes with the allowance in place. On the other hand, those consumers may be better off consuming less leisure but better private housing than by consuming more leisure but worse (public) housing.
+
+A related consideration is intra-household allocation of resources. There is no moral hazard on labor supply for disadvantaged children, so rationing subsdized access to high quality housing may require a high level of relatively child-friendly consumption on parents who might value that subsidy less than they would cash. There is mixed evidence from the U.S. that programs such as Moving To Opportunity (\textcite{KatzKlingLiebman}) that link housing assistance to the choice of geography lead to better outcomes than unrestricted cash. For most of the population in BC urban areas, the inequity in opportunity across school districts is not comparable to that in major U.S. urban areas. However, per \textcite{RiesSomerville} there are appreciable differences in school quality across catchments in Vancouver, and as noted above an explicit goal of City of Vancouver housing policy is to preserve diversity of household incomes within city boundaries.
+
+\subsubsection{Moral hazard: Rent Control}
+
+Tax policy and rent control provide artificial incentives for housing developers to build for sale condominiums rather than purpose built rentals. Supply-side subsidies to the creation of either market or subsidized rental housing may thus be desirable. Rent control is a transfer to long-tenured renters, and landlord-renter piars likely pay more in income taxes than owner-occupiers. Whether this rationalizes supply-side policy is not clear, as a demand-side housing allowance tied to rental status might accomplish the same nudge.
+
+\subsection{Price effects of vouchers}
+
+\textcite{EriksenRoss} summarize and augment the studies of the price impacts of Section 8 (now ``Housing Choice'') Vouchers in the U.S. These means-tested and rationed vouchers provide landlords with the difference between 30\% of a tenant's income and a market-specific allowable rent. Tenants thus have incentives to move to relatively high quality units, but landlords may be able to bargain away some of the surplus, depending on their willingness to deal with renters bearing the stigma of participation. A key finding is that rents increase for intermediate quality units near the allowable rent cap, but fall for lower quality housing units. Evidence from the U.K. and London suggest that a significant portion of the increase in rents associated with vouchers is captured by landlords. Naturally the extent of price movements will depend on supply elasticities and the extent to which high quality units filter down to lower income renters.
+
+\section{Direct Government Investment and Capital Costs}
+
+One path towards supply side subsidies for government is to outright own units. Even public housing operators like the New York City Housing Authority have purchased ``scatter site'' apartments, so the units owned need not all be concentrated in particular developments. A general criticism in public ownership is a lack of managerial capacity, but there are some offsetting considerations.
+
+\subsection{Cost of capital}
+
+As economists have long observed,\footnote{See, e.g. \texttt{https://voxeu.org/article/real-cost-government-credit-support-new-estimates}} the fact that governments borrow at lower rates than private entities does not necessarily mean that their cost of capital when investing in market projects is lower than private investors'. Taxpayers arguably should require the same risk premia as private investors. However, to the extent the current low interest rate environment (and the spread of other forms of debt to treasuries, see Figure \ref{fig:rates}, and to the extent the public has a longer horizon than private investors, there may be an opportunity for taxpayers to invest in equity rather than debt in a profitable way. The current environment, in which the public sector faces unattractive cutbacks illustrates both 
+
+\begin{figure}
+	\caption{\label{fig:rates} Historical spreads of AAA bond yields above 10-year U.S. Treasuries, via FRED}
+	\pgfimage[width=6in]{voucher_fred}
+\end{figure}
+
+While govenment borrowing rates are typically very low in recessions, the marginal value of money received in recession is presumably very high -- municipal cutbacks in the current environment suggest that.
+
+Government should consider their true marginal cost of funds. One way for government to move condominium apartments to rental would be to purchase them in large numbers, hire property managers, and rent these units out. This could occur both for existing units and new units (where government might have bargaining power unavailable to private investors in bulk purchasing presale units). Current yields (cap rates, net rent divided by purchase price) on rental housing appear to be on the order of 3\%. It seems unlikely that net income would fall over time, and government could presumably violate rent control if necessary during recessions if vacancy were to become an issue. Even with self-imposed vacancy control, assuming 2\% inflation, government as an investor should achieve roughly 5\% nominal yields on investment in rental properties assuming reasonably decent property management. 
+
+Returning to the Kitsilano example, government invests \$80,000 to guarantee that apartments are rented at \$2,750 per unit. Through acquisition, at an economic cost likely to be close to zero or negative, taxpayers can acquire condos near suburban transit and guarantee that they are rented closer to the average CMHC rents. 
+
+\subsection{A non-rationalization for supply-side intervention: Income Mixing, Supply-Side Subsidies, and Zoning}
+
+One rationalization for supply-side interventions is to guarantee income mixing in prized areas such as Vancouver's West Side. We have seent that the required subsidy is very large. By contrast, a modest government mandate of relaxation of suburban prohibitions on multifamily housing would obtain some immediate income mixing at no direct financial cost. Market apartments are less expensive than single family homes, but would not create immediate affordability in affluent suburban areas in the short-run. However, filtering of apartments appears observationally to be a significant phenomenon through depreciation. Imposing a ``Mount Laurel'' like mandate that some multifamily housing be approved each year in existing single family zones would thus guarantee a trajectory of improved affordability in currently exclusive areas such as West Vancouver or Oak Bay.
+
+\section{Summary}
+
+The Province and municipalities currently engage in considerable intervention on the supply and demand side of housing markets. Elementary economics favors cash grants over building-specific subsidies due to both the indivisibility and hence unequal allocation of large subsidies to render many units affordable and due to the possibility that beneficiaries are given large increases in consumption far from how they would allocate an equivalent cash grant. As in any market supply-side interventions may overcome moral hazard on the dimension of labour supply or intra-family resource allocation. 
+
+Zoning and rent control are very large interventions that should not be ignored in thinking through assistance to low income households. Through the sale of zoning, governments throughout BC can raise funds sufficient to finance significant demand or supply-side subsidies to affordable housing while using the market to move prices and rents down the demand curve. 
+
+To the extent that tenant protections can be circumvented, rent control provides a rationalization for shifting ownership to the social sector. To the extent that rent control is a desirable transfer from more affluent landlords to on average low-income renters, the practice of encouraging supply in the form of rentals over condos may be rationalized. One area of low-hanging policy fruit appears to lie here: shifting market apartments from owner to rental tenure requires large investments in urban areas without the promise of affordability. By contrast, in partnership with private investor and operators, government could acquire less expensive existing condo units at what should be close to zero economic cost to place into rental tenure.
+
+Subsidies on the supply or the demand side may induce adverse equilibrium feedback. Subsidies to new supply of affordable unit may crowd out market supply dampening price impacts and yielding reallocation of units rather than creation of more homes. Given inelastic supply, subsidies to tenants can be expected to increase market rents, with the largest impact on the market segments where recipients are concentrated. U.S. evidence is mixed but appears to suggest these feedback effects are more adverse with respect to supply-side than demand-side subsidies.
+
+\printbibliography
+%\bibliography{tombib}
+%\bibliographystyle{aer}
+
+
+\end{document}
+
+
+\section{Argments for the provision of social housing in B.C.}
+
+There are 
+
+
+To see that this baseline statement has meaning in the context of housing in B.C., consider recent transactions in which developers pay municipalities for the right to build at greater density than current zoning allows. Developers commonly pay in excess of \$100 per built square foot to obtain greater density. However, those fees can be waived if developers agree to restrict their building to be entirely renter occupied in perpetuity, even if the rental units are at market rents. Those market rents are commonly \$2,750 for an 800-square foot 2-bedroom unit, or \$1,000 per month above the CMHC benchmark. This seems like a very large amount, but is not altogether surprising, as strata building presale prices can exceed construction costs by as much as \$1,000 per square foot. The price of additional square footage beyond existing zoning for rental buildings appears to be roughly \$150 per square foot less than the price for strata buildings in Vancouver. Thus for an 800 square foot 2-bedroom apartment the city would be foregoing roughly \$1,000,000 to reallocate the building to rental use. In one project (1906-1918 W. 4th Avenue), the developer expects to charge rents of \$2,750 for 2-bedroom units. By contrast, a 2-bedroom condominium near Skytrain in a concrete building in Surrey appears to cost roughly \$550,000, and might command a rent near the 2-bedroom metropolitan average of \$1,750. Assuming away frictions associated with public sector management, government could thus purchase a condo like this on the open market. A rent of \$1,750 per month is affordable only at incomes above \$70,000 per year, but government evidently can acquire condos to convert to rentals at a rent of \$1,750 with zero economic cost.
+
+By contrast, converting the Vancouver unit from a condo to a rental at \$1,750 per month would require an up-front investment of roughly \$1,000,000 plus a monthly expenditure of \$1,000. Below \$1,750, of course, the developer would have to be compensated at roughly the cost of providing a subsidy on a government owned unit. Ignoring the public benefit of providing a low income household a rental unit in Kitsilano rather than Surrey, converting the Kitsliano unit away from condo status and towards rental status rather than purchasing the Surrey unit represents a waste of \$1,000,000 plus \$12,000 per year.
+
+
+\section{Rationalizations for Direct Provision of Housing}
+
+Public housing versus vouchers is a special case of the general question of whether government should provide cash versus in-kind transfers. Taking a \$400 annual renters' credit as an approximation of likely housing support, there is little question that vouchers would be ``inframarginal'': small enough that given the fungibility of cash, the voucher would be economically equivalent to cash up to psychological effects.
+
+A classic rationalization of in-kind transfers is 
+
+\subsection{Price impacts}
+
+Per \textcite{Jayachandran}, 
+
+To the extent that housing consumption is less weighted to adults than other spending is, forcing households to overconsume housing can provide more assistance to disadvantaged children with less discouragement of parents' labour supply. 
+
+if a  shared among household members than other expenditures
+
+in two ways: first, recipients may have an incentive parents 
+
+
 
 \begin{itemize}
 	\item Not sure how to handle First Nations here, I will keep general, but that's obviously a big issue.
@@ -66,6 +257,6 @@ Some thoughts on the problem:
 	\item Federal government putting a lot of money into rental, might be better done as public ownership, see my note \textcite{Davidoffcmhc}. Why lend at 1.75\% rent/price when equity partner developers insist on 4.5\% rent/price to do development deals? Government could buy from developers at 3\%, get more built, and much better returns for taxpayers (up to risk, which seems quite limited and risk of low rents is a win).
 \end{itemize}
 
-\printbibliography
+To see why the public provision of housing units might not be wise, consider the market for apartments in Vancouver. In recent years, it has not been uncommon for developers to pay the City of Vancouver \$100 or more per square foot for the right to build in excess of allowable density under current zoning law.\footnote{Through the ``Community Amenity Contribution'' (CAC), ``Development Cost Levy'' (DCL), and ``Density Bonusing'' mechanisms.} Allowing one more 800-square foot 2-bedroom apartment would thus generate roughly \$80,000 to the City. This seems large, but may be small relative to the value obtained by the developer, given strata units have commonly sold for over \$500 above marginal construction cost. Recently, to encourage affordable housing, the city has taken to waiving these contributions if developers will build dedicated (``purpose built'') rental housing. In several cases, developers have commited to not charge more than \$2,750 for two-bedroom apartments, slightly below market rents in the upzoned location, and \$1,000 above the two-bedroom benchmark provided by CMHC. By contrast, condos in existing concrete buildings in Surrey appear to sell for roughly \$550,000 and rent at market for roughly the benchmark rate of \$1,750 per month. Thus a government in principle could at close to zero cost transform condos to rentals. Annualizing the \$80,000 in forgiven density contributions provides a cost of \$2,400 per year at a 3\% marginal cost of government funds, large relative to the \$400 annual renters subsidy deemed too expensive. Transforming the market rental to a rent as affordable as a suburban condo would require an annual subsidy of \$12,000. The difference is that the prime location provides a superiod product to the renter rationed into that unit. But of course a \$12,400 annual subsidy could not scale.
 
-\end{document}
+
